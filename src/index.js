@@ -1,15 +1,6 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
-// import Header from './layout/Header';
-// import Footer from './layout/Footer';
-// import Main from './layout/Main';
-// import App from 'componenents/app/app';
+import React from 'react'
+import ReactDOM from 'react-dom'
 
-const App = (props) =>
-  (<div>
-    <header></header>
-    <main></main>
-    <footer></footer>
-  </div>);
+import App from './components/App/App'
 
-ReactDOM.render(<App />, document.getElementById('app'));
+ReactDOM.render(<App />, document.getElementById('app'))

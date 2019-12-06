@@ -2,6 +2,8 @@ import actions from './data/actions';
 const { ROCK, PAPER, SCISSORS } = actions;
 /** Returns 1 if action1 is stronger than action2, 0 if equal and -1 otherwise
     TODO: Use hashmap instead of switch
+    IDEA: Do math with indices to calculate the score
+    IDEA: Do it with bitwise operations
 */
 export function calculateScore(action1, action2) {
     // console.log(`action1: ${action1}    action2: ${action2}`)
@@ -15,4 +17,9 @@ export function calculateScore(action1, action2) {
         case SCISSORS: return (action2 === PAPER) ? 1 : -1
         default: throw `Unknown action: ${action1}`
     }
+}
+
+export function getRandomAction() {
+    const actionList = [ROCK, PAPER, SCISSORS];
+    return actionList[Math.floor(Math.random() * actionList.length)]
 }

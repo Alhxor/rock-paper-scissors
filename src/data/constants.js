@@ -1,0 +1,11 @@
+export const ACTIONS = {
+    ROCK: 'ROCK',
+    PAPER: 'PAPER',
+    SCISSORS: 'SCISSORS'
+}
+
+export const GAME_STATUS = {
+    NOT_STARTED: 'NOT_STARTED',
+    IN_PROGRESS: 'IN_PROGRESS',
+    FINISHED: 'FINISHED'
+}

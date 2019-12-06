@@ -1,5 +1,5 @@
-import actions from './data/actions';
-const { ROCK, PAPER, SCISSORS } = actions;
+import { ACTIONS } from './data/constants';
+const { ROCK, PAPER, SCISSORS } = ACTIONS;
 /** Returns 1 if action1 is stronger than action2, 0 if equal and -1 otherwise
     TODO: Use hashmap instead of switch
     IDEA: Do math with indices to calculate the score

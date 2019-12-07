@@ -1,3 +1,5 @@
+import './App.css'
+
 import React, { Component } from 'react'
 import { Player } from '../../Player'
 import { calculateScore } from '../../logic'
@@ -78,9 +80,14 @@ class App extends Component {
             score,
             winner
          } = this.state
+
         return (<>
             <header>
-                <nav></nav>
+                <img src='../../../images/logo.svg' className='logo' />
+                <div className='score'>
+                    SCORE
+                    <div className='scoreNumber'>{score}</div>
+                </div>
             </header>
             <main>
                 <p>Game state: {status}</p>
@@ -94,7 +101,6 @@ class App extends Component {
                         disabled={!turnButtonEnabled}>
                     Next round
                 </button>
-                <p>Score: {score}</p>
                 <p>Winner: {winner}</p>
             </main>
             <footer>

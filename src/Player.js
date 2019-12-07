@@ -1,3 +1,7 @@
+function actionsAreValid(actions) {
+    return (Boolean(actions) || Boolean(actions.length))
+}
+
 export class Player {
     constructor(name) {
         this.name = name;
@@ -5,11 +9,22 @@ export class Player {
     }
 
     getName() { return this.name }
+
     getCurrentAction() { return this.action }
 
+    performChosenAction(actions = [], index) {
+        if (!actionsAreValid(actions) || index >= actions.length)
+            return
+
+        const newAction = actions[index]
+        this.action = actions[index]
+        return newAction
+    }
+
     performRandomAction(actions = []) {
-        if (!actions || !actions.length)
-            return null
+        if (!actionsAreValid(actions))
+            return
+
         const newAction = actions[Math.floor(Math.random() * actions.length)]
 
         this.action = newAction

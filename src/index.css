@@ -1,1 +1,5 @@
-
+body {
+    background-color: rgba(0, 20, 20, 0.9);
+    color: lightgrey;
+    font: 140%/1.6 Verdana sans-serif;
+}

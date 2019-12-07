@@ -1,0 +1,46 @@
+header {
+    position: relative;
+    min-width: 100px;
+    width: 50vw;
+    height: 12vh;
+    margin: 1em auto;
+    font-family: Arial;
+    border-radius: 10px;
+    border: 2px solid grey;
+    /* outline: 1px solid red; */
+}
+
+header::after {
+    content: '';
+    display: block;
+    clear: both;
+}
+
+.logo, .score {
+    position: relative;
+    top: 50%;
+    transform: translateY(-50%);
+    border-radius: 10px;
+    font-weight: bold;
+    padding: 5px 10px;
+}
+
+.logo {
+    float: left;
+}
+
+.score {
+    float: right;
+    width: 60px;
+    height: 60px;
+    margin: 0 20px;
+    background-color: white;
+    color: black;
+    font-size: 14px;
+    text-align: center;
+}
+
+.scoreNumber {
+    font-size: 40px;
+    line-height: 1;
+}

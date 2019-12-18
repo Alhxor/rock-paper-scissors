@@ -9,6 +9,8 @@ import { ACTIONS, GAME_STATUS } from '../../data/constants'
 const { NOT_STARTED, IN_PROGRESS, FINISHED } = GAME_STATUS
 const { ROCK, PAPER, SCISSORS } = ACTIONS
 
+const imgPath = '../../../images/';
+
 class App extends Component {
     constructor() {
         super()
@@ -83,14 +85,25 @@ class App extends Component {
 
         return (<>
             <header>
-                <img src='../../../images/logo.svg' className='logo' />
+                <img src={`${imgPath}logo.svg`} className='logo' />
                 <div className='score'>
                     SCORE
                     <div className='scoreNumber'>{score}</div>
                 </div>
             </header>
-            <main>
-                <p>Game state: {status}</p>
+            <main style={{backgroundImage: `url(${imgPath}bg-triangle.svg)`}}>
+                <a className='icon paper'>
+                    <img src={`${imgPath}icon-paper.svg`} />
+                </a>
+
+                <a className='icon scissors'>
+                    <img src={`${imgPath}icon-scissors.svg`} />
+                </a>
+
+                <a className='icon rock'>
+                    <img src={`${imgPath}icon-rock.svg`} />
+                </a>
+                {/*<p>Game state: {status}</p>
                 <p>{player.getName()} vs. {opponent.getName()}</p>
                 <p>{player.getCurrentAction()} vs. {opponent.getCurrentAction()}</p>
                 <button onClick={() => this.startGame()}
@@ -101,7 +114,7 @@ class App extends Component {
                         disabled={!turnButtonEnabled}>
                     Next round
                 </button>
-                <p>Winner: {winner}</p>
+                <p>Winner: {winner}</p>*/}
             </main>
             <footer>
             </footer>

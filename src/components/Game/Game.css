@@ -1,0 +1,37 @@
+.icon {
+    display: inline-block;
+    position: absolute;
+    width: calc(60px + 10vmin);
+    height: calc(60px + 10vmin);
+    background: #ccc;
+    border-radius: 50%;
+    border-width: 20px;
+    border-style: solid;
+    cursor: pointer;
+    left: 50%;
+    top: 50%;
+}
+
+.icon img {
+    display: inline-block;
+    position: relative;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 50%;
+}
+
+.paper {
+    transform: translate(-120%, -120%);
+    border-color: #3498db;
+}
+
+.scissors {
+    transform: translate(20%, -120%);
+    border-color: goldenrod;
+}
+
+.rock {
+    transform: translate(-50%, 0%);
+    border-color: crimson;
+}

@@ -20,6 +20,6 @@ export function calculateScore(action1, action2) {
 }
 
 export function getRandomAction() {
-    const actionList = [ROCK, PAPER, SCISSORS];
-    return actionList[Math.floor(Math.random() * actionList.length)]
+    const actions = [ROCK, PAPER, SCISSORS]
+    return actions[Math.floor(Math.random() * actions.length)]
 }

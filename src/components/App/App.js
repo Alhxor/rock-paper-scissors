@@ -1,13 +1,13 @@
 import './App.css'
 
 import React, { Component } from 'react'
-import { Player } from '../../Player'
-import { calculateScore } from '../../logic'
 
-import { ACTIONS, GAME_STATUS } from '../../data/constants'
+import { Game } from '../Game/Game'
 
-const { NOT_STARTED, IN_PROGRESS, FINISHED } = GAME_STATUS
+import { ACTIONS } from '../../data/constants'
 const { ROCK, PAPER, SCISSORS } = ACTIONS
+
+import { calculateScore, getRandomAction } from '../../logic'
 
 const imgPath = '../../../images/';
 
@@ -16,71 +16,47 @@ class App extends Component {
         super()
 
         this.state = {
-            status: NOT_STARTED,
-            player: new Player('Player'),
-            opponent: new Player('Opponent'),
             score: 0, // +1 for player wins, -1 for opponent wins, 0 for draws
-            winCondition: 3, // game ends on score = abs(winCondition)
-            turnHistory: [], // can store state history here
-
-            // Children UI state
-            startButtonEnabled: true,
-            turnButtonEnabled: false,
-            winner: ''
+            gameResult: '',
+            pcAction: '',
+            playerAction: null
+            // turnHistory: [], // can store state history here
         }
     }
 
-    startGame() {
+    announceWinner(playerChoice) {
+        const opponentChoice = getRandomAction()
+        const roundScore = calculateScore(playerChoice, opponentChoice)
+        const newScore = this.state.score + roundScore
+
+        let result = ''
+        switch(roundScore) {
+            case 1: result = 'You win!'; break
+            case 0: result = 'Draw!'; break
+            case -1: result = 'You lose!'; break
+            default: result = 'Unknown result'
+        }
+
         this.setState({
-            status: IN_PROGRESS,
-            winner: '',
-            startButtonEnabled: false,
-            turnButtonEnabled: true
+            score: newScore,
+            gameResult: result,
+            playerAction: playerChoice,
+            pcAction: opponentChoice
         })
     }
 
-    finishGame() {
-        const { player, opponent, score } = this.state
-        const winner = (score > 0) ? player : opponent
-
+    newRound() {
         this.setState({
-            status: FINISHED,
-            startButtonEnabled: true,
-            turnButtonEnabled: false,
-            winner: winner.getName()
+            gameResult: ''
         })
-    }
-
-    newTurn() {
-        const { player, opponent } = this.state
-        const actions = [ROCK, PAPER, SCISSORS]
-        player.performRandomAction(actions)
-        opponent.performRandomAction(actions)
-
-        this.updateScore()
-    }
-
-    updateScore() {
-        const { player, opponent, score, winCondition } = this.state
-        const action1 = player.getCurrentAction()
-        const action2 = opponent.getCurrentAction()
-
-        const newScore = score + calculateScore(action1, action2)
-        this.setState({ score: newScore })
-
-        if (Math.abs(newScore) >= winCondition) // normally should not be '>'
-            this.finishGame()
     }
 
     render() {
         const {
-            startButtonEnabled,
-            turnButtonEnabled,
-            player,
-            opponent,
-            status,
             score,
-            winner
+            gameResult,
+            pcAction,
+            playerAction
          } = this.state
 
         return (<>
@@ -92,29 +68,15 @@ class App extends Component {
                 </div>
             </header>
             <main style={{backgroundImage: `url(${imgPath}bg-triangle.svg)`}}>
-                <a className='icon paper'>
-                    <img src={`${imgPath}icon-paper.svg`} />
-                </a>
-
-                <a className='icon scissors'>
-                    <img src={`${imgPath}icon-scissors.svg`} />
-                </a>
-
-                <a className='icon rock'>
-                    <img src={`${imgPath}icon-rock.svg`} />
-                </a>
-                {/*<p>Game state: {status}</p>
-                <p>{player.getName()} vs. {opponent.getName()}</p>
-                <p>{player.getCurrentAction()} vs. {opponent.getCurrentAction()}</p>
-                <button onClick={() => this.startGame()}
-                        disabled={!startButtonEnabled}>
-                    Start game
-                </button>
-                <button onClick={() => this.newTurn()}
-                        disabled={!turnButtonEnabled}>
-                    Next round
-                </button>
-                <p>Winner: {winner}</p>*/}
+                <Game
+                    actions={ACTIONS}
+                    imgPath={imgPath}
+                    gameResult={gameResult}
+                    playerAction={playerAction}
+                    opponentAction={pcAction}
+                    chooseAction={(choice) => this.announceWinner(choice)}
+                    playAgain={() => this.newRound()}
+                />
             </main>
             <footer>
             </footer>

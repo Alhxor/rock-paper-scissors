@@ -8,19 +8,6 @@ export class Player {
         this.action = null;
     }
 
-    getName() { return this.name }
-
-    getCurrentAction() { return this.action }
-
-    performChosenAction(actions = [], index) {
-        if (!actionsAreValid(actions) || index >= actions.length)
-            return
-
-        const newAction = actions[index]
-        this.action = actions[index]
-        return newAction
-    }
-
     performRandomAction(actions = []) {
         if (!actionsAreValid(actions))
             return

@@ -1,15 +1,10 @@
 .icon {
     display: inline-block;
-    position: absolute;
-    width: calc(60px + 10vmin);
-    height: calc(60px + 10vmin);
     background: #ccc;
     border-radius: 50%;
     border-width: 20px;
     border-style: solid;
     cursor: pointer;
-    left: 50%;
-    top: 50%;
 }
 
 .icon img {
@@ -21,17 +16,70 @@
     width: 50%;
 }
 
-.paper {
-    transform: translate(-120%, -120%);
-    border-color: #3498db;
+.result-layout {
+    position: relative;
+    /* margin-bottom: -20px; */
+    /* margin-top: 12em; */
 }
 
-.scissors {
-    transform: translate(20%, -120%);
-    border-color: goldenrod;
+.result-header::after {
+    content: '';
+    display: table;
+    clear: both;
 }
 
-.rock {
-    transform: translate(-50%, 0%);
-    border-color: crimson;
+.label {
+    text-align: center;
+    font-family: sans-serif;
+    font-size: 1.2em;
+}
+
+.float-left { float: left; }
+.float-right { float: right; }
+
+.w40 { width: 40%; }
+.w60px { width: 60px; }
+
+.blue-border { border-color: #3498db; }
+.yellow-border { border-color: goldenrod; }
+.red-border { border-color: crimson; }
+
+.normal {
+    width: calc(60px + 10vmin);
+    height: calc(60px + 10vmin);
+}
+
+.big {
+    width: calc(100px + 10vmin);
+    height: calc(100px + 10vmin);
+}
+
+.align-from-center {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+}
+
+.center-middle { transform: translate(-50%, -50%); }
+
+.top-left { transform: translate(-120%, -120%); }
+.top-right { transform: translate(20%, -120%); }
+.bottom-center { transform: translate(-50%, 0%); }
+
+.left-middle { transform: translate(-140%, -50%); }
+.right-middle { transform: translate(40%, -50%); }
+
+button {
+    padding: 0.4em 1em;
+}
+
+.game {
+    position: relative;
+    background-position: center;
+    background-repeat: no-repeat;
+    min-width: 100px;
+    min-height: 50vh;
+    width: 80vw;
+    height: 60vh;
+    margin: 0 auto;
 }

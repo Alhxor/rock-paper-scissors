@@ -67,7 +67,7 @@ class App extends Component {
                     <div className='scoreNumber'>{score}</div>
                 </div>
             </header>
-            <main style={{backgroundImage: `url(${imgPath}bg-triangle.svg)`}}>
+            <main>
                 <Game
                     actions={ACTIONS}
                     imgPath={imgPath}

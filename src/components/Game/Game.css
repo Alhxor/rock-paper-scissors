@@ -83,3 +83,7 @@ button {
     height: 60vh;
     margin: 0 auto;
 }
+
+.bg-triangle {
+    background-image: url('../../../images/bg-triangle.svg');
+}

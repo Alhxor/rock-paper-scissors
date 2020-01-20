@@ -4,14 +4,16 @@ import './Game.css'
 import {Choice} from '../Choice/Choice'
 
 export function Game(props) {
-    const { actions, imgPath, gameResult, playerAction, opponentAction,
+    const { actions, gameResult, playerAction, opponentAction,
             chooseAction, playAgain } = props
     const { PAPER, SCISSORS, ROCK } = actions
+    const BACKGROUND = 'BACKGROUND'
 
     const images = {
-        [PAPER]: `${imgPath}icon-paper.svg`,
-        [SCISSORS]: `${imgPath}icon-scissors.svg`,
-        [ROCK]: `${imgPath}icon-rock.svg`
+        [PAPER]: require('../../../images/icon-paper.svg'),
+        [SCISSORS]: require('../../../images/icon-scissors.svg'),
+        [ROCK]: require('../../../images/icon-rock.svg'),
+        [BACKGROUND]: require('../../../images/bg-triangle.svg')
     }
 
     const borderStyles = {
@@ -21,10 +23,7 @@ export function Game(props) {
     }
 
     const choices = (
-        <div
-            className='game'
-            style={{backgroundImage: `url(${imgPath}bg-triangle.svg)`}}
-        >
+        <div className='game bg-triangle'>
             <Choice
                 onClick={() => chooseAction(PAPER)}
                 className='icon normal align-from-center top-left blue-border'

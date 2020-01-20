@@ -9,8 +9,6 @@ const { ROCK, PAPER, SCISSORS } = ACTIONS
 
 import { calculateScore, getRandomAction } from '../../logic'
 
-const imgPath = '../../../images/';
-
 class App extends Component {
     constructor() {
         super()
@@ -61,7 +59,7 @@ class App extends Component {
 
         return (<>
             <header>
-                <img src={`${imgPath}logo.svg`} className='logo' />
+                <img src={require('../../../images/logo.svg')} className='logo' />
                 <div className='score'>
                     SCORE
                     <div className='scoreNumber'>{score}</div>
@@ -70,7 +68,6 @@ class App extends Component {
             <main>
                 <Game
                     actions={ACTIONS}
-                    imgPath={imgPath}
                     gameResult={gameResult}
                     playerAction={playerAction}
                     opponentAction={pcAction}

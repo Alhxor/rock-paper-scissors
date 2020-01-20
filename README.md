@@ -1,3 +1,5 @@
+You can try this live at https://alhxor.github.io/rock-paper-scissors/
+
 # Frontend Mentor - Rock, Paper, Scissors
 
 ![Design preview for the Rock, Paper, Scissors coding challenge](./design/desktop-preview.jpg)

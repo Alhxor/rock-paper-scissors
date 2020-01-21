@@ -16,6 +16,12 @@ export function Game(props) {
         [BACKGROUND]: require('../../../images/bg-triangle.svg')
     }
 
+    const bgStyles = {
+        [PAPER]: 'bg-paper',
+        [SCISSORS]: 'bg-scissors',
+        [ROCK]: 'bg-rock'
+    }
+
     const borderStyles = {
         [PAPER]: 'blue-border',
         [SCISSORS]: 'yellow-border',
@@ -26,18 +32,15 @@ export function Game(props) {
         <div className='game bg-triangle'>
             <Choice
                 onClick={() => chooseAction(PAPER)}
-                className='icon normal align-from-center top-left blue-border'
-                image={images.PAPER}
+                className={`icon normal align-from-center top-left blue-border ${bgStyles.PAPER}`}
             />
             <Choice
                 onClick={() => chooseAction(SCISSORS)}
-                className='icon normal align-from-center top-right yellow-border'
-                image={images.SCISSORS}
+                className={`icon normal align-from-center top-right yellow-border ${bgStyles.SCISSORS}`}
             />
             <Choice
                 onClick={() => chooseAction(ROCK)}
-                className='icon normal align-from-center bottom-center red-border'
-                image={images.ROCK}
+                className={`icon normal align-from-center bottom-center red-border ${bgStyles.ROCK}`}
             />
         </div>
     )
@@ -45,29 +48,36 @@ export function Game(props) {
     const result = (
         <div className='game'>
             <div className='result-layout'>
-                <div className='label w40 float-left'>You picked
+                <div className='label w50 float-left'>
+                    <p>You picked</p>
                 </div>
-                <div className='label w40 column float-right'>The house picked</div>
+                <div className='label w50 float-right'>
+                    <p>The house picked</p>
+                </div>
             </div>
 
-            <Choice
-            onClick={() => ''}
-            className={`icon big align-from-center left-middle
-                ${borderStyles[playerAction]}`}
-                image={images[playerAction]}
-                />
-
-            <div className='label align-from-center center-middle'>
-                {gameResult}<br />
-                <button onClick={() => playAgain()}>Play again</button>
+            <div className='result-layout'>
+                <div className='label w50 float-left'>
+                    <Choice
+                        onClick={() => ''}
+                        className={`icon big
+                            ${borderStyles[playerAction]}
+                            ${bgStyles[playerAction]}`}
+                    />
+                </div>
+                <div className='label w50 float-right'>
+                    <Choice
+                        onClick={() => ''}
+                        className={`icon big
+                            ${borderStyles[opponentAction]}
+                            ${bgStyles[opponentAction]}`}
+                    />
+                </div>
             </div>
-
-            <Choice
-                onClick={() => ''}
-                className={`icon big align-from-center right-middle
-                            ${borderStyles[opponentAction]}`}
-                image={images[opponentAction]}
-            />
+            <div className='label'>
+            {gameResult}<br />
+            <button onClick={() => playAgain()}>Play again</button>
+            </div>
         </div>
     )
 

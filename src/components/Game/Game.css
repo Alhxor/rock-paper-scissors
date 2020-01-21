@@ -1,20 +1,26 @@
+/* div { outline: 1px solid red } */
+
 .icon {
+    position: relative;
     display: inline-block;
     background: #ccc;
     border-radius: 50%;
-    border-width: 20px;
+    border-width: calc(10px + 1vmin);
     border-style: solid;
     cursor: pointer;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: 50%;
 }
 
-.icon img {
+/* .icon img {
     display: inline-block;
     position: relative;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
     width: 50%;
-}
+} */
 
 .result-layout {
     position: relative;
@@ -22,7 +28,7 @@
     /* margin-top: 12em; */
 }
 
-.result-header::after {
+.result-layout::after {
     content: '';
     display: table;
     clear: both;
@@ -31,27 +37,36 @@
 .label {
     text-align: center;
     font-family: sans-serif;
-    font-size: 1.2em;
+    font-size: calc(0.8rem + 2vmin);
+    margin: 0 auto;
+}
+
+.label p {
+    padding: 5px 0;
 }
 
 .float-left { float: left; }
 .float-right { float: right; }
 
+.w20 { width: 20%; }
 .w40 { width: 40%; }
+.w50 { width: 50%; }
+.w60 { width: 60%; }
 .w60px { width: 60px; }
+.w100px { width: 100px; }
 
 .blue-border { border-color: #3498db; }
 .yellow-border { border-color: goldenrod; }
 .red-border { border-color: crimson; }
 
 .normal {
-    width: calc(60px + 10vmin);
-    height: calc(60px + 10vmin);
+    width: calc(40px + 12vmin);
+    height: calc(40px + 12vmin);
 }
 
 .big {
-    width: calc(100px + 10vmin);
-    height: calc(100px + 10vmin);
+    width: calc(60px + 12vmin);
+    height: calc(60px + 12vmin);
 }
 
 .align-from-center {
@@ -77,13 +92,14 @@ button {
     position: relative;
     background-position: center;
     background-repeat: no-repeat;
-    min-width: 100px;
+    background-size: calc(100px + 20vmin);
+    /* min-width: 300px; */
     min-height: 50vh;
-    width: 80vw;
     height: 60vh;
     margin: 0 auto;
 }
 
-.bg-triangle {
-    background-image: url('../../../images/bg-triangle.svg');
-}
+.bg-paper { background-image: url('../../../images/icon-paper.svg'); }
+.bg-rock { background-image: url('../../../images/icon-rock.svg'); }
+.bg-scissors { background-image: url('../../../images/icon-scissors.svg'); }
+.bg-triangle { background-image: url('../../../images/bg-triangle.svg'); }

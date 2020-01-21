@@ -6,9 +6,14 @@ div, img {
     /* outline: 1px solid red; */
 }
 
+body {
+    min-width: 300px;
+    /* padding: 0 0em; */
+}
+
 header {
     position: relative;
-    min-width: 100px;
+    min-width: 300px;
     width: 50vw;
     height: 120px;
     margin: 1em auto;
@@ -30,6 +35,8 @@ header::after, main::after {
     border-radius: 10px;
     font-weight: bold;
     padding: 5px 10px;
+    max-width: 50%;
+    /* max-width: 25vw; */
 }
 
 .logo {

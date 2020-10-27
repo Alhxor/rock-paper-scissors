@@ -2,8 +2,11 @@ This is my first try at this challenge.
 
 You can try this live at https://alhxor.github.io/rock-paper-scissors/
 
+
 Second version (in plain JS):
+
 repo: https://github.com/Alhxor/frontend-mentor/tree/master/rock-paper-scissors-master
+
 app: https://alhxor.github.io/frontend-mentor/rock-paper-scissors-master
 
 # Frontend Mentor - Rock, Paper, Scissors
